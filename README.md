@@ -169,7 +169,7 @@ Check out the [example](example) folder for a complete working example with diff
 ## Screenshots
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/cristiancamolo070/app_shimmer/main/example/assets/screenshots/screenshot_app_shimmer.png" alt="App Shimmer Example" width="300"/>
+  <img src="https://github.com/cristiancamilo070/App-Shimmer/blob/main/example/assets/screenshots/screenshot_app_shimmer.png?raw=true" alt="App Shimmer Example" width="300"/>
 </div>
 
 *Shimmer loading effects for ListTiles, ListViews, and Grids*
