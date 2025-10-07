@@ -3,7 +3,7 @@
 * Fixed: Documentation improvements and screenshot added
 * Updated: README.md with better examples and visual preview
 * Improved: Repository URLs updated to match GitHub organization
-* Fixed: Minor typos in dartdoc comments
+* Added: Comprehensive dartdoc comments for all widgets
 
 ## 1.0.0
 
