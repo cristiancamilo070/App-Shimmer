@@ -1,0 +1,23 @@
+{
+    "dart.flutterSdkPath": "/Users/felipev9/Documents/Samay/apps/brisa_app/.fvm/versions/3.29.3",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#bf2bf3",
+        "activityBar.background": "#bf2bf3",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#5a4405",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#bf2bf3",
+        "statusBar.background": "#a80dde",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#bf2bf3",
+        "statusBarItem.remoteBackground": "#a80dde",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#a80dde",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#a80dde99",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#a80dde"
+}
