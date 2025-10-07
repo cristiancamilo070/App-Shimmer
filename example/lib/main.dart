@@ -43,7 +43,6 @@ class _TestPageState extends State<TestPage> {
         backgroundColor: Color(0xffDE4242),
         child: FaIcon(FontAwesomeIcons.eye, color: Colors.white),
       ),
-
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
@@ -55,6 +54,7 @@ class _TestPageState extends State<TestPage> {
                 ListTileExampleWidget(showShimmer: showShimmer),
                 ListViewExampleWidget(showShimmer: showShimmer),
                 GridExampleWidget(showShimmer: showShimmer),
+                SizedBox(height: 20),
               ],
             ),
           ),

@@ -169,8 +169,10 @@ Check out the [example](example) folder for a complete working example with diff
 ## Screenshots
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/cristiancamolo070/app_shimmer/main/screenshots/example.gif" alt="App Shimmer Example" width="300"/>
+  <img src="https://raw.githubusercontent.com/cristiancamolo070/app_shimmer/main/example/assets/screenshots/screenshot_app_shimmer.png" alt="App Shimmer Example" width="300"/>
 </div>
+
+*Shimmer loading effects for ListTiles, ListViews, and Grids*
 
 ## Contributing
 
@@ -186,12 +188,12 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Author
+## Authors
 
-Created by **Cristian Cruz**
+Created by **Felipe Valencia** and **Cristian Cruz**
 
 ## Support
 
-If you find this package useful, please give it a ⭐ on [GitHub](https://github.com/cristiancamilo070/App-Shimmer)!
+If you find this package useful, please give it a ⭐ on [GitHub](https://github.com/cristiancamolo070/app_shimmer)!
 
-For issues, feature requests, or questions, please visit our [issue tracker](https://github.com/cristiancamilo070/App-Shimmer/issues).
+For issues, feature requests, or questions, please visit our [issue tracker](https://github.com/cristiancamolo070/app_shimmer/issues).

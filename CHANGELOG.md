@@ -1,3 +1,10 @@
+## 1.0.1
+
+* Fixed: Documentation improvements and screenshot added
+* Updated: README.md with better examples and visual preview
+* Improved: Repository URLs updated to match GitHub organization
+* Fixed: Minor typos in dartdoc comments
+
 ## 1.0.0
 
 * **Initial release** 🎉

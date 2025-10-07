@@ -18,7 +18,8 @@ class GridExampleWidget extends StatelessWidget {
   /// Builds the Grid test section
   List<Widget> _buildGridTestSection(BuildContext context) {
     return [
-      Text('Grid Test:', style: Theme.of(context).textTheme.titleLarge),
+      Text('Grid:', style: Theme.of(context).textTheme.titleSmall),
+      const SizedBox(height: 12),
       const SizedBox(height: 10),
       if (showShimmer) ...[
         ..._buildShimmerGrid(context),
@@ -33,13 +34,13 @@ class GridExampleWidget extends StatelessWidget {
   List<Widget> _buildShimmerGrid(BuildContext context) {
     return [
       const SizedBox(height: 12),
-      const AppShimmerGrid(
+      AppShimmerGrid(
         itemCount: 6,
         containerStyle: ShimmerContainerStyle(
           width: double.infinity,
           height: 90,
           borderRadiusDouble: 3,
-          customColor: Color(0xff325288),
+          customColor: Color(0xff325288).withValues(alpha: 0.5),
         ),
         iconContainerStyle: ShimmerContainerStyle(
           width: 35,

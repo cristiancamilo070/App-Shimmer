@@ -15,15 +15,12 @@ class ListViewExampleWidget extends StatelessWidget {
   /// Builds the ListView test section
   List<Widget> _buildListViewTestSection(BuildContext context) {
     return [
-      Text('ListView Test:', style: Theme.of(context).textTheme.titleLarge),
       const SizedBox(height: 10),
-
       if (showShimmer) ...[
         ..._buildShimmerListView(context),
       ] else ...[
         ..._buildRealListView(context),
       ],
-
       const SizedBox(height: 20),
     ];
   }
@@ -31,7 +28,8 @@ class ListViewExampleWidget extends StatelessWidget {
   /// Builds shimmer ListView widgets
   List<Widget> _buildShimmerListView(BuildContext context) {
     return [
-      Text('Without Container:', style: Theme.of(context).textTheme.titleSmall),
+      Text('ListView without Container:',
+          style: Theme.of(context).textTheme.titleSmall),
       const SizedBox(height: 12),
       const AppShimmerListTileListView(
         itemCount: 2,
@@ -59,7 +57,8 @@ class ListViewExampleWidget extends StatelessWidget {
         ),
       ),
       const SizedBox(height: 8),
-      Text('With Container:', style: Theme.of(context).textTheme.titleSmall),
+      Text('ListView with Container:',
+          style: Theme.of(context).textTheme.titleSmall),
       const SizedBox(height: 12),
       const AppShimmerListTileListView(
         itemCount: 2,

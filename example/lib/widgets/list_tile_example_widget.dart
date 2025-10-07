@@ -15,7 +15,6 @@ class ListTileExampleWidget extends StatelessWidget {
   /// Builds the ListTile test section
   List<Widget> _buildListTileTestSection(BuildContext context) {
     return [
-      Text('ListTile Test:', style: Theme.of(context).textTheme.titleLarge),
       const SizedBox(height: 10),
       if (showShimmer) ...[
         ..._buildShimmerListTiles(context),
@@ -29,7 +28,8 @@ class ListTileExampleWidget extends StatelessWidget {
   /// Builds shimmer ListTile widgets
   List<Widget> _buildShimmerListTiles(BuildContext context) {
     return [
-      Text('Without Container:', style: Theme.of(context).textTheme.titleSmall),
+      Text('ListTile without Container:',
+          style: Theme.of(context).textTheme.titleSmall),
       const SizedBox(height: 12),
       const AppShimmerListTile(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -56,7 +56,8 @@ class ListTileExampleWidget extends StatelessWidget {
         hasContainer: false,
       ),
       const SizedBox(height: 12),
-      Text('With Container:', style: Theme.of(context).textTheme.titleSmall),
+      Text('ListTile with Container:',
+          style: Theme.of(context).textTheme.titleSmall),
       const SizedBox(height: 12),
       const AppShimmerListTile(
         padding: EdgeInsets.zero,

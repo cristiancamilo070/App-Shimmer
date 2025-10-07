@@ -15,7 +15,6 @@ class ContainerExampleWidget extends StatelessWidget {
   /// Builds the Container test section
   List<Widget> _buildContainerTestSection(BuildContext context) {
     return [
-      Text('Container Test:', style: Theme.of(context).textTheme.titleLarge),
       const SizedBox(height: 10),
       if (showShimmer) ...[
         const AppShimmerContainer(
