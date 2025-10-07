@@ -101,7 +101,7 @@ const shimmerGradient = LinearGradient(
 /// ```
 class AppShimmerAnimation extends StatelessWidget {
   /// Creates an [AppShimmerAnimation].
-  const AppShimmerAnimation({super.key, required this.child});
+  const AppShimmerAnimation({required this.child, super.key});
 
   /// The widget to be animated with shimmer effect.
   final Widget child;
@@ -136,7 +136,7 @@ class AppShimmerAnimation extends StatelessWidget {
 /// ```
 class AppShimmerContainer extends StatelessWidget {
   /// Creates an [AppShimmerContainer].
-  const AppShimmerContainer({super.key, required this.skeletonContainerStyle});
+  const AppShimmerContainer({required this.skeletonContainerStyle, super.key});
 
   /// The style configuration for this shimmer container.
   final ShimmerContainerStyle skeletonContainerStyle;
@@ -174,8 +174,8 @@ class AppShimmerContainer extends StatelessWidget {
 class SkeletonContainerExpanded extends StatelessWidget {
   /// Creates a [SkeletonContainerExpanded].
   const SkeletonContainerExpanded({
-    super.key,
     required this.skeletonContainerStyle,
+    super.key,
   });
 
   /// The style configuration for this shimmer container.
@@ -211,10 +211,10 @@ class SkeletonContainerExpanded extends StatelessWidget {
 class AppShimmerContainerList extends StatelessWidget {
   /// Creates an [AppShimmerContainerList].
   const AppShimmerContainerList({
-    super.key,
     required this.itemCount,
     required this.isColumn,
     required this.skeletonContainerStyle,
+    super.key,
   });
 
   /// The style configuration for each shimmer container in the list.
@@ -303,9 +303,9 @@ class AppShimmerContainerList extends StatelessWidget {
 class AppShimmerListTile extends StatelessWidget {
   /// Creates an [AppShimmerListTile].
   const AppShimmerListTile({
+    required this.titleStyle,
     super.key,
     this.leadingStyle,
-    required this.titleStyle,
     this.subtitleStyle,
     this.padding,
     this.contentSpacing,
@@ -422,11 +422,11 @@ class AppShimmerListTile extends StatelessWidget {
 class AppShimmerListTileListView extends StatelessWidget {
   /// Creates an [AppShimmerListTileListView].
   const AppShimmerListTileListView({
+    required this.itemCount,
+    required this.titleStyle,
     this.heightFull,
     super.key,
-    required this.itemCount,
     this.leadingStyle,
-    required this.titleStyle,
     this.paragraphStyle,
     this.trailingStyle,
     this.subtitleStyle,
@@ -533,9 +533,9 @@ class AppShimmerListTileListView extends StatelessWidget {
 class AppShimmerGrid extends StatelessWidget {
   /// Creates an [AppShimmerGrid].
   const AppShimmerGrid({
-    super.key,
     required this.itemCount,
     required this.containerStyle,
+    super.key,
     this.iconContainerStyle,
     this.child,
     this.crossAxisCount = 3,

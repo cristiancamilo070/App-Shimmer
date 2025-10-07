@@ -1,3 +1,7 @@
+## 1.0.2
+
+* Fixed: FaIcons removed.
+
 ## 1.0.1
 
 * Fixed: Documentation improvements and screenshot added

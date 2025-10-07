@@ -1,9 +1,7 @@
 // lib/widgets/grid_example_widget.dart
 // ignore_for_file: deprecated_member_use
-
 import 'package:app_shimmer/app_shimmer.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class GridExampleWidget extends StatelessWidget {
   const GridExampleWidget({super.key, required this.showShimmer});
@@ -48,8 +46,8 @@ class GridExampleWidget extends StatelessWidget {
           boxShape: BoxShape.circle,
           customColor: Colors.white,
         ),
-        child: FaIcon(
-          FontAwesomeIcons.circleInfo,
+        child: Icon(
+          Icons.info_outlined,
           size: 15,
           color: Color(0xff325288),
         ),

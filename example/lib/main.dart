@@ -6,7 +6,6 @@ import 'package:app_shimmer_example/widgets/grid_example_widget.dart';
 import 'package:app_shimmer_example/widgets/list_tile_example_widget.dart';
 import 'package:app_shimmer_example/widgets/list_view_example_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const TestApp());
@@ -41,7 +40,7 @@ class _TestPageState extends State<TestPage> {
           });
         },
         backgroundColor: Color(0xffDE4242),
-        child: FaIcon(FontAwesomeIcons.eye, color: Colors.white),
+        child: Icon(Icons.remove_red_eye_rounded, color: Colors.white),
       ),
       body: SingleChildScrollView(
         child: SafeArea(

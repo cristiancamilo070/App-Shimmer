@@ -29,7 +29,7 @@ class HunchAnimation extends StatefulWidget {
   /// Creates a [HunchAnimation] widget.
   ///
   /// The [child] parameter must not be null.
-  const HunchAnimation({super.key, required this.child});
+  const HunchAnimation({required this.child, super.key});
 
   /// The widget below this widget in the tree.
   ///
