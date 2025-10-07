@@ -1,4 +1,24 @@
 include: package:flutter_lints/flutter.yaml
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+linter:
+  rules:
+    - prefer_const_constructors
+    - prefer_const_literals_to_create_immutables
+    - avoid_print
+    - prefer_single_quotes
+    - sort_pub_dependencies
+    - always_declare_return_types
+    - always_put_required_named_parameters_first
+    - avoid_returning_null_for_void
+    - cancel_subscriptions
+    - close_sinks
+    - package_names
+    - valid_regexps
+
+analyzer:
+  exclude:
+    - build/**
+    - example/**
+  errors:
+    missing_required_param: error
+    missing_return: error

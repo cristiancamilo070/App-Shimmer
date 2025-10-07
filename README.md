@@ -1,39 +1,197 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# App Shimmer
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+[![pub package](https://img.shields.io/pub/v/app_shimmer.svg)](https://pub.dev/packages/app_shimmer)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A customizable and easy-to-use Flutter package for creating beautiful shimmer loading effects. Perfect for showing loading states in your app with pre-built widgets for ListTiles, ListViews, Grids, and custom containers.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+✨ **Pre-built Shimmer Widgets**: Ready-to-use shimmer effects for common UI patterns  
+🎨 **Highly Customizable**: Full control over colors, sizes, shapes, and animations  
+📦 **Lightweight**: Minimal dependencies and optimized performance  
+🚀 **Easy Integration**: Simple API that works out of the box  
+🎯 **Type Safe**: Built with Flutter's latest best practices  
 
-## Getting started
+## Widgets Included
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+- `AppShimmerContainer` - Single shimmer container
+- `AppShimmerContainerList` - Horizontal or vertical list of shimmer containers
+- `AppShimmerListTile` - Shimmer effect for ListTile layouts
+- `AppShimmerListTileListView` - ListView of shimmer ListTiles
+- `AppShimmerGrid` - Grid layout shimmer effect
+- `SkeletonContainerExpanded` - Expanded shimmer container
+
+## Installation
+
+Add this to your package's `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  app_shimmer: ^1.0.0
+```
+
+Then run:
+
+```bash
+flutter pub get
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+### Basic Container
 
 ```dart
-const like = 'sample';
+import 'package:app_shimmer/app_shimmer.dart';
+
+AppShimmerContainer(
+  skeletonContainerStyle: ShimmerContainerStyle(
+    width: 200,
+    height: 100,
+    borderRadiusDouble: 12,
+  ),
+)
 ```
 
-## Additional information
+### ListTile with Shimmer
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+AppShimmerListTile(
+  padding: EdgeInsets.all(16),
+  leadingStyle: ShimmerContainerStyle(
+    width: 40,
+    height: 40,
+    boxShape: BoxShape.circle,
+  ),
+  titleStyle: ShimmerContainerStyle(
+    width: 150,
+    height: 16,
+  ),
+  subtitleStyle: ShimmerContainerStyle(
+    width: 100,
+    height: 12,
+  ),
+  trailingStyle: ShimmerContainerStyle(
+    width: 40,
+    height: 40,
+    boxShape: BoxShape.circle,
+  ),
+  contentSpacing: 16,
+  verticalSpacing: 4,
+  hasContainer: true,
+)
+```
+
+### ListView with Shimmer
+
+```dart
+AppShimmerListTileListView(
+  itemCount: 5,
+  hasContainer: true,
+  titleStyle: ShimmerContainerStyle(
+    width: 200,
+    height: 16,
+  ),
+  subtitleStyle: ShimmerContainerStyle(
+    width: 150,
+    height: 12,
+  ),
+  leadingStyle: ShimmerContainerStyle(
+    width: 40,
+    height: 40,
+    boxShape: BoxShape.circle,
+  ),
+  dividerWidget: SizedBox(height: 8),
+)
+```
+
+### Grid with Shimmer
+
+```dart
+AppShimmerGrid(
+  itemCount: 6,
+  containerStyle: ShimmerContainerStyle(
+    width: double.infinity,
+    height: 90,
+    borderRadiusDouble: 8,
+    customColor: Colors.grey.shade300,
+  ),
+  iconContainerStyle: ShimmerContainerStyle(
+    width: 35,
+    height: 35,
+    boxShape: BoxShape.circle,
+  ),
+  crossAxisCount: 3,
+  crossAxisSpacing: 8,
+  mainAxisSpacing: 8,
+)
+```
+
+### Custom Colors
+
+```dart
+ShimmerContainerStyle(
+  width: 200,
+  height: 100,
+  customColor: Color(0xFF898AC4), // Your custom color
+  borderRadiusDouble: 12,
+)
+```
+
+### Container List (Horizontal)
+
+```dart
+AppShimmerContainerList(
+  itemCount: 5,
+  isColumn: false, // Horizontal
+  skeletonContainerStyle: ShimmerContainerStyle(
+    width: 100,
+    height: 100,
+    borderRadiusDouble: 12,
+  ),
+)
+```
+
+## ShimmerContainerStyle Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `width` | `double` | required | Width of the shimmer container |
+| `height` | `double?` | null | Height of the shimmer container |
+| `borderRadiusDouble` | `double` | 8 | Border radius for rectangle shapes |
+| `boxShape` | `BoxShape` | BoxShape.rectangle | Shape of the container (rectangle or circle) |
+| `customColor` | `Color?` | null | Custom color for the shimmer base |
+
+## Example
+
+Check out the [example](example) folder for a complete working example with different shimmer patterns and use cases.
+
+## Screenshots
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/cristiancamolo070/app_shimmer/main/screenshots/example.gif" alt="App Shimmer Example" width="300"/>
+</div>
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+Created by **Cristian Cruz**
+
+## Support
+
+If you find this package useful, please give it a ⭐ on [GitHub](https://github.com/cristiancamilo070/App-Shimmer)!
+
+For issues, feature requests, or questions, please visit our [issue tracker](https://github.com/cristiancamilo070/App-Shimmer/issues).
