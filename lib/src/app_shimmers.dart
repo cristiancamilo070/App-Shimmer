@@ -232,8 +232,8 @@ class AppShimmerContainerList extends StatelessWidget {
       child: (!isColumn)
           ? SizedBox(
               height: skeletonContainerStyle.height ?? 0 + 20,
-              width: skeletonContainerStyle.width * (itemCount) +
-                  (itemCount) * 10,
+              width:
+                  skeletonContainerStyle.width * (itemCount) + (itemCount) * 10,
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: ListView.builder(

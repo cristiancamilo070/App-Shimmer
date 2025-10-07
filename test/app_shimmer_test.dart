@@ -69,10 +69,12 @@ void main() {
       );
 
       final sizedBox = tester.widget<SizedBox>(
-        find.descendant(
-          of: find.byType(AppShimmerContainer),
-          matching: find.byType(SizedBox),
-        ).first,
+        find
+            .descendant(
+              of: find.byType(AppShimmerContainer),
+              matching: find.byType(SizedBox),
+            )
+            .first,
       );
       expect(sizedBox.height, 150);
     });
@@ -197,10 +199,12 @@ void main() {
       );
 
       final container = tester.widget<Container>(
-        find.descendant(
-          of: find.byType(AppShimmerListTile),
-          matching: find.byType(Container),
-        ).first,
+        find
+            .descendant(
+              of: find.byType(AppShimmerListTile),
+              matching: find.byType(Container),
+            )
+            .first,
       );
 
       expect(container.decoration, isNotNull);
@@ -311,8 +315,8 @@ void main() {
       );
 
       final gridView = tester.widget<GridView>(find.byType(GridView));
-      final delegate = gridView.gridDelegate
-          as SliverGridDelegateWithFixedCrossAxisCount;
+      final delegate =
+          gridView.gridDelegate as SliverGridDelegateWithFixedCrossAxisCount;
       expect(delegate.crossAxisCount, 3);
     });
 
@@ -334,8 +338,8 @@ void main() {
       );
 
       final gridView = tester.widget<GridView>(find.byType(GridView));
-      final delegate = gridView.gridDelegate
-          as SliverGridDelegateWithFixedCrossAxisCount;
+      final delegate =
+          gridView.gridDelegate as SliverGridDelegateWithFixedCrossAxisCount;
       expect(delegate.crossAxisSpacing, 10);
       expect(delegate.mainAxisSpacing, 15);
     });
