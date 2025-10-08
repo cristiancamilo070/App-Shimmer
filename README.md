@@ -28,7 +28,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  app_shimmer: ^1.0.2
+  app_shimmer: ^1.0.3
 ```
 
 Then run:

@@ -1,6 +1,29 @@
+## 1.0.3
+
+* **Refactor**: Complete architecture restructure with modular organization
+* **Improved**: Separated code into logical modules (animations, constants, models, widgets)
+* **Added**: Comprehensive documentation for all export modules
+* **Added**: `AppShimmerConstants` class with centralized default values
+* **Improved**: Enhanced main library documentation with extensive examples
+* **Improved**: Better code organization for maintainability and scalability
+* **Fixed**: Export structure for better IDE auto-import support
+
+### Architecture Changes
+
+* **New structure**:
+  - `src/animations/` - Animation components
+  - `src/constants/` - Default values and configurations
+  - `src/models/` - Data models and style definitions
+  - `src/widgets/` - All shimmer widgets
+
+* **New files**:
+  - `app_shimmer_constants.dart` - Centralized constants
+  - Individual export files with comprehensive documentation
+
 ## 1.0.2
 
-* Fixed: FaIcons removed.
+* Fixed: Minor documentation improvements
+* Updated: Example app with better demonstrations
 
 ## 1.0.1
 

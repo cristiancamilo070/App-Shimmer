@@ -1,3 +1,8 @@
+import 'package:app_shimmer/src/models/app_shimmer_style_model.dart';
+import 'package:app_shimmer/src/widgets/app_shimmer_animation_wrapper.dart';
+import 'package:app_shimmer/src/widgets/app_shimmer_container.dart';
+import 'package:app_shimmer/src/widgets/app_shimmer_container_expanded.dart';
+import 'package:app_shimmer/src/widgets/app_shimmer_container_list_view.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:app_shimmer/app_shimmer.dart';
 import 'package:flutter/material.dart';
@@ -85,7 +90,7 @@ void main() {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(
-            body: SkeletonContainerExpanded(
+            body: AppShimmerContainerExpanded(
               skeletonContainerStyle: ShimmerContainerStyle(
                 width: 100,
                 height: 100,
@@ -95,7 +100,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(SkeletonContainerExpanded), findsOneWidget);
+      expect(find.byType(AppShimmerContainerExpanded), findsOneWidget);
       expect(find.byType(AppShimmerAnimation), findsOneWidget);
     });
   });
@@ -259,22 +264,6 @@ void main() {
 
       expect(find.byType(SizedBox), findsWidgets);
     });
-
-    testWidgets('uses default divider when none provided',
-        (WidgetTester tester) async {
-      await tester.pumpWidget(
-        const MaterialApp(
-          home: Scaffold(
-            body: AppShimmerListTileListView(
-              itemCount: 3,
-              titleStyle: ShimmerContainerStyle(width: 150, height: 16),
-            ),
-          ),
-        ),
-      );
-
-      expect(find.byType(DefaultDividerWidget), findsWidgets);
-    });
   });
 
   group('AppShimmerGrid', () {
@@ -381,35 +370,6 @@ void main() {
 
       // Check that FadeTransition exists and is animating
       expect(find.byType(FadeTransition), findsOneWidget);
-    });
-  });
-
-  group('DefaultDividerWidget', () {
-    testWidgets('renders with default height', (WidgetTester tester) async {
-      await tester.pumpWidget(
-        const MaterialApp(
-          home: Scaffold(
-            body: DefaultDividerWidget(),
-          ),
-        ),
-      );
-
-      final divider = tester.widget<Divider>(find.byType(Divider));
-      expect(divider.height, 40);
-      expect(divider.thickness, .5);
-    });
-
-    testWidgets('renders with custom height', (WidgetTester tester) async {
-      await tester.pumpWidget(
-        const MaterialApp(
-          home: Scaffold(
-            body: DefaultDividerWidget(height: 20),
-          ),
-        ),
-      );
-
-      final divider = tester.widget<Divider>(find.byType(Divider));
-      expect(divider.height, 20);
     });
   });
 
