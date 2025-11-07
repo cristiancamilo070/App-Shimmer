@@ -1,6 +1,4 @@
-import 'package:app_shimmer/src/constants/app_shimmer_constants.dart';
-import 'package:app_shimmer/src/models/app_shimmer_style_model.dart';
-import 'package:app_shimmer/src/widgets/app_shimmer_animation_wrapper.dart';
+import 'package:app_shimmer/app_shimmer.dart';
 import 'package:app_shimmer/src/widgets/container_builder.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +16,18 @@ import 'package:flutter/material.dart';
 ///     height: 40,
 ///     boxShape: BoxShape.circle,
 ///   ),
+///     customGradient: AppShimmerCustomGradient(
+///       direction: ShimmerDirection.topToBottom,
+///       colors: [
+///         Color(0x00FFFFFF),
+///         Color(0x33FFFFFF),
+///         Color(0x66FFFFFF),
+///         Color(0x33FFFFFF),
+///         Color(0x00FFFFFF),
+///       ],
+///       stops: [0.0, 0.25, 0.5, 0.75, 1.0],
+///     ),
+///
 ///   titleStyle: ShimmerContainerStyle(width: 150, height: 16),
 ///   subtitleStyle: ShimmerContainerStyle(width: 100, height: 12),
 ///   contentSpacing: 16,
@@ -38,6 +48,7 @@ class AppShimmerListTile extends StatelessWidget {
     this.paragraphStyle,
     this.trailingStyle,
     this.hasContainer,
+    this.customGradient,
   });
 
   /// Style for the leading element (typically a circular avatar).
@@ -67,9 +78,15 @@ class AppShimmerListTile extends StatelessWidget {
   /// Whether to wrap the list tile in a container with background and shadow.
   final bool? hasContainer;
 
+  /// Optional custom gradient configuration for the shimmer animation.
+  ///
+  /// If null, [AppShimmerConstants.shimmerGradient] is used.
+  final AppShimmerCustomGradient? customGradient;
+
   @override
   Widget build(BuildContext context) {
     return AppShimmerAnimation(
+      customGradient: customGradient,
       child: Padding(
         padding: padding ?? EdgeInsets.zero,
         child: Container(

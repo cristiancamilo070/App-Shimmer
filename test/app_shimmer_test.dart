@@ -1,8 +1,3 @@
-import 'package:app_shimmer/src/models/app_shimmer_style_model.dart';
-import 'package:app_shimmer/src/widgets/app_shimmer_animation_wrapper.dart';
-import 'package:app_shimmer/src/widgets/app_shimmer_container.dart';
-import 'package:app_shimmer/src/widgets/app_shimmer_container_expanded.dart';
-import 'package:app_shimmer/src/widgets/app_shimmer_container_list_view.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:app_shimmer/app_shimmer.dart';
 import 'package:flutter/material.dart';

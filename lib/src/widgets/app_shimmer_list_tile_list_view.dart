@@ -1,5 +1,4 @@
-import 'package:app_shimmer/src/models/app_shimmer_style_model.dart';
-import 'package:app_shimmer/src/widgets/app_shimmer_list_tile.dart';
+import 'package:app_shimmer/app_shimmer.dart';
 import 'package:flutter/material.dart';
 
 /// A ListView containing multiple shimmer ListTile widgets.
@@ -19,26 +18,38 @@ import 'package:flutter/material.dart';
 ///     height: 40,
 ///     boxShape: BoxShape.circle,
 ///   ),
+///     customGradient: AppShimmerCustomGradient(
+///       direction: ShimmerDirection.topToBottom,
+///       colors: [
+///         Color(0x00FFFFFF),
+///         Color(0x33FFFFFF),
+///         Color(0x66FFFFFF),
+///         Color(0x33FFFFFF),
+///         Color(0x00FFFFFF),
+///       ],
+///       stops: [0.0, 0.25, 0.5, 0.75, 1.0],
+///     ),
+///
 ///   dividerWidget: SizedBox(height: 8),
 /// )
 /// ```
 class AppShimmerListTileListView extends StatelessWidget {
   /// Creates an [AppShimmerListTileListView].
-  const AppShimmerListTileListView({
-    required this.itemCount,
-    required this.titleStyle,
-    this.heightFull,
-    super.key,
-    this.leadingStyle,
-    this.paragraphStyle,
-    this.trailingStyle,
-    this.subtitleStyle,
-    this.padding,
-    this.contentSpacing,
-    this.verticalSpacing,
-    this.hasContainer,
-    this.dividerWidget,
-  });
+  const AppShimmerListTileListView(
+      {required this.itemCount,
+      required this.titleStyle,
+      this.heightFull,
+      super.key,
+      this.leadingStyle,
+      this.paragraphStyle,
+      this.trailingStyle,
+      this.subtitleStyle,
+      this.padding,
+      this.contentSpacing,
+      this.verticalSpacing,
+      this.hasContainer,
+      this.dividerWidget,
+      this.customGradient});
 
   /// Total height of the list view. If null, the list will size itself.
   final double? heightFull;
@@ -76,6 +87,11 @@ class AppShimmerListTileListView extends StatelessWidget {
   /// Widget to use as divider between list tiles.
   final Widget? dividerWidget;
 
+  /// Optional custom gradient configuration for the shimmer animation.
+  ///
+  /// If null, [AppShimmerConstants.shimmerGradient] is used.
+  final AppShimmerCustomGradient? customGradient;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -94,6 +110,7 @@ class AppShimmerListTileListView extends StatelessWidget {
               return Stack(
                 children: [
                   AppShimmerListTile(
+                    customGradient: customGradient,
                     hasContainer: hasContainer,
                     padding: padding,
                     leadingStyle: leadingStyle,

@@ -20,17 +20,24 @@ import 'package:flutter_skeleton_ui/flutter_skeleton_ui.dart';
 /// ```
 class AppShimmerAnimation extends StatelessWidget {
   /// Creates an [AppShimmerAnimation].
-  const AppShimmerAnimation({required this.child, super.key});
+  const AppShimmerAnimation(
+      {required this.child, this.customGradient, super.key});
 
   /// The widget to be animated with shimmer effect.
   final Widget child;
+
+  /// Optional custom gradient configuration for the shimmer animation.
+  ///
+  /// If null, [AppShimmerConstants.shimmerGradient] is used.
+  final AppShimmerCustomGradient? customGradient;
 
   @override
   Widget build(BuildContext context) {
     return HunchAnimation(
       child: SkeletonTheme(
         themeMode: ThemeMode.system,
-        shimmerGradient: AppShimmerConstants.shimmerGradient,
+        shimmerGradient:
+            customGradient?.build() ?? AppShimmerConstants.shimmerGradient,
         child: SkeletonItem(child: child),
       ),
     );

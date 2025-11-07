@@ -18,6 +18,17 @@ class ContainerExampleWidget extends StatelessWidget {
       const SizedBox(height: 10),
       if (showShimmer) ...[
         const AppShimmerContainer(
+          customGradient: AppShimmerCustomGradient(
+            direction: ShimmerDirection.leftToRight,
+            colors: [
+              Color.fromARGB(0, 255, 255, 255),
+              Color.fromARGB(59, 141, 225, 220),
+              Color.fromARGB(82, 91, 210, 226),
+              Color.fromARGB(59, 141, 225, 220),
+              Color.fromARGB(0, 255, 255, 255),
+            ],
+            stops: [0.0, 0.25, 0.5, 0.75, 1.0],
+          ),
           skeletonContainerStyle: ShimmerContainerStyle(width: 200, height: 50),
         ),
       ] else ...[

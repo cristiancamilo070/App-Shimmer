@@ -1,6 +1,3 @@
-// lib/test_main.dart
-// ignore_for_file: deprecated_member_use
-
 import 'package:app_shimmer_example/widgets/container_example_widget.dart';
 import 'package:app_shimmer_example/widgets/grid_example_widget.dart';
 import 'package:app_shimmer_example/widgets/list_tile_example_widget.dart';
@@ -40,7 +37,7 @@ class _TestPageState extends State<TestPage> {
           });
         },
         backgroundColor: Color(0xffDE4242),
-        child: Icon(Icons.remove_red_eye_rounded, color: Colors.white),
+        child: Icon(Icons.remove_red_eye_outlined, color: Colors.white),
       ),
       body: SingleChildScrollView(
         child: SafeArea(

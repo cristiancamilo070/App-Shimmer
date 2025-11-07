@@ -1,6 +1,4 @@
-import 'package:app_shimmer/src/constants/app_shimmer_constants.dart';
-import 'package:app_shimmer/src/models/app_shimmer_style_model.dart';
-import 'package:app_shimmer/src/widgets/app_shimmer_animation_wrapper.dart';
+import 'package:app_shimmer/app_shimmer.dart';
 import 'package:flutter/material.dart';
 
 /// A shimmer grid widget with customizable layout and item styles.
@@ -17,6 +15,18 @@ import 'package:flutter/material.dart';
 ///     width: double.infinity,
 ///     height: 90,
 ///   ),
+///     customGradient: AppShimmerCustomGradient(
+///       direction: ShimmerDirection.topToBottom,
+///       colors: [
+///         Color(0x00FFFFFF),
+///         Color(0x33FFFFFF),
+///         Color(0x66FFFFFF),
+///         Color(0x33FFFFFF),
+///         Color(0x00FFFFFF),
+///       ],
+///       stops: [0.0, 0.25, 0.5, 0.75, 1.0],
+///     ),
+///
 ///   crossAxisCount: 3,
 ///   crossAxisSpacing: 8,
 ///   mainAxisSpacing: 8,
@@ -34,6 +44,7 @@ class AppShimmerGrid extends StatelessWidget {
     this.crossAxisSpacing = 8,
     this.mainAxisSpacing = 0,
     this.childAspectRatio = 1,
+    this.customGradient,
   });
 
   /// Number of items to display in the grid.
@@ -60,9 +71,15 @@ class AppShimmerGrid extends StatelessWidget {
   /// Aspect ratio of each grid item.
   final double childAspectRatio;
 
+  /// Optional custom gradient configuration for the shimmer animation.
+  ///
+  /// If null, [AppShimmerConstants.shimmerGradient] is used.
+  final AppShimmerCustomGradient? customGradient;
+
   @override
   Widget build(BuildContext context) {
     return AppShimmerAnimation(
+      customGradient: customGradient,
       child: GridView.builder(
         padding: const EdgeInsets.symmetric(
           horizontal: AppShimmerConstants.defaultPadding,

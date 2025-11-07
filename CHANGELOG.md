@@ -1,3 +1,37 @@
+## 1.0.4
+
+- **Added**: `customGradient` parameter to all shimmer animation widgets for full control of shimmer direction, colors, and intensity.
+- **Added**: New `AppShimmerCustomGradient` class for building custom `LinearGradient` configurations with flexible directions.
+- **Improved**: Documentation examples updated to include gradient customization usage.
+- **Improved**: Default shimmer behavior remains unchanged for backward compatibility.
+- **Fixed**: Minor consistency updates in widget docs (`AppShimmerContainerExpanded`, `AppShimmerContainer`).
+
+### Custom Gradient Support
+
+You can now fully customize the shimmer animation by providing your own gradient configuration.
+
+**Example:**
+
+```dart
+AppShimmerContainer(
+  customGradient: AppShimmerCustomGradient(
+    direction: ShimmerDirection.topToBottom,
+    colors: const [
+      Color(0x00FFFFFF),
+      Color(0x33FFFFFF),
+      Color(0x99FFFFFF),
+      Color(0x33FFFFFF),
+      Color(0x00FFFFFF),
+    ],
+    stops: const [0.0, 0.25, 0.5, 0.75, 1.0],
+  ),
+  skeletonContainerStyle: const ShimmerContainerStyle(
+    width: 200,
+    height: 100,
+    borderRadiusDouble: 8,
+  ),
+)
+
 ## 1.0.3
 
 * **Refactor**: Complete architecture restructure with modular organization
@@ -48,3 +82,4 @@
 * Smooth fade animations with configurable duration
 * Comprehensive documentation and examples
 * Full test coverage
+```

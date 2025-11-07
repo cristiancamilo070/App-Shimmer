@@ -103,7 +103,7 @@
 /// * [ShimmerContainerStyle] - Style configuration model
 /// * [AppShimmerConstants] - Default values and constants
 /// * [HunchAnimation] - Underlying animation
-library app_shimmer_widgets;
+library;
 
 export 'app_shimmer_animation_wrapper.dart';
 export 'app_shimmer_container.dart';
@@ -112,3 +112,4 @@ export 'app_shimmer_grid.dart';
 export 'app_shimmer_list_tile.dart';
 export 'app_shimmer_list_tile_list_view.dart';
 export 'app_shimmer_container_list_view.dart';
+export 'app_shimmer_custom_gradient.dart';
