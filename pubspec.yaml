@@ -1,6 +1,6 @@
 name: app_shimmer
 description: A customizable Flutter shimmer loading package with pre-built widgets for ListTiles, ListViews, Grids, and custom containers. Easy to use and highly customizable.
-version: 1.0.4
+version: 1.0.5
 homepage: https://github.com/cristiancamolo070/app_shimmer
 repository: https://github.com/cristiancamolo070/app_shimmer
 issue_tracker: https://github.com/cristiancamolo070/app_shimmer/issues

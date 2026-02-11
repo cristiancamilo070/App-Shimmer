@@ -1,0 +1,344 @@
+---
+description: Generar código app_shimmer a partir de widgets Flutter (IA)
+globs: "**/*.dart"
+alwaysApply: false
+---
+
+# Generar Shimmer desde Widgets (app_shimmer)
+
+Cuando el usuario pida "genera el shimmer", "haz el skeleton de este widget", "shimmer para esto" o muestre código de un widget/screen Flutter, genera el código equivalente usando la librería **app_shimmer** de este proyecto.
+
+Siempre incluir `import 'package:app_shimmer/app_shimmer.dart';` cuando generes código nuevo.
+
+## Mapeo Widget → Shimmer
+
+| Widget / patrón Flutter                   | Widget app_shimmer                | Notas                                                                                                                                           |
+| ----------------------------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Container` con width/height fijos        | `AppShimmerContainer`             | `ShimmerContainerStyle(width, height, borderRadiusDouble)`. Avatar: `boxShape: BoxShape.circle`.                                                |
+| `ListView` de `ListTile`                  | `AppShimmerListTileListView`      | `itemCount`, `titleStyle`, `subtitleStyle`, `leadingStyle`, `trailingStyle`, `dividerWidget`, `hasContainer`, `padding`.                        |
+| Un solo `ListTile`                        | `AppShimmerListTile`              | `leadingStyle` (circle 40x40), `titleStyle`, `subtitleStyle`, `trailingStyle`, `contentSpacing`, `verticalSpacing`, `hasContainer`, `padding`.   |
+| `GridView` / grid de celdas               | `AppShimmerGrid`                  | `itemCount`, `containerStyle`, `iconContainerStyle` (opcional), `crossAxisCount`, `crossAxisSpacing`, `mainAxisSpacing`, opcional `child`.        |
+| Lista horizontal/vertical de contenedores | `AppShimmerContainerList`         | `itemCount`, `isColumn: true/false`, `skeletonContainerStyle`.                                                                                   |
+| Contenedor que debe expandirse            | `AppShimmerContainerExpanded`     | Mismo estilo que container.                                                                                                                     |
+| Cualquier widget custom                   | `AppShimmerAnimation(child: ...)` | Envuelve el widget existente con el efecto shimmer.                                                                                             |
+
+## ShimmerContainerStyle
+
+- `width` (requerido), `height` (opcional).
+- `borderRadiusDouble` (default 8).
+- `boxShape`: `BoxShape.rectangle` o `BoxShape.circle` (avatares, iconos).
+- `customColor`: opcional, para tema (ej. `Color(0xff898AC4)`, `Colors.grey.shade300`).
+
+## Ejemplos completos (README + example/lib/widgets)
+
+### 1. Basic Container (README)
+
+```dart
+AppShimmerContainer(
+  skeletonContainerStyle: ShimmerContainerStyle(
+    width: 200,
+    height: 100,
+    borderRadiusDouble: 12,
+  ),
+)
+```
+
+### 2. Container con gradiente personalizado (example: container_example_widget)
+
+```dart
+AppShimmerContainer(
+  customGradient: AppShimmerCustomGradient(
+    direction: ShimmerDirection.leftToRight,
+    colors: [
+      Color.fromARGB(0, 255, 255, 255),
+      Color.fromARGB(59, 141, 225, 220),
+      Color.fromARGB(82, 91, 210, 226),
+      Color.fromARGB(59, 141, 225, 220),
+      Color.fromARGB(0, 255, 255, 255),
+    ],
+    stops: [0.0, 0.25, 0.5, 0.75, 1.0],
+  ),
+  skeletonContainerStyle: ShimmerContainerStyle(width: 200, height: 50),
+)
+```
+
+### 3. Custom Gradients (README) — más direcciones
+
+```dart
+AppShimmerContainer(
+  customGradient: AppShimmerCustomGradient(
+    direction: ShimmerDirection.diagonalTopLeftToBottomRight,
+    colors: const [
+      Color(0x00FFFFFF),
+      Color(0x33FFFFFF),
+      Color(0x99FFFFFF),
+      Color(0x33FFFFFF),
+      Color(0x00FFFFFF),
+    ],
+    stops: const [0.0, 0.25, 0.5, 0.75, 1.0],
+  ),
+  skeletonContainerStyle: const ShimmerContainerStyle(
+    width: 200,
+    height: 100,
+    borderRadiusDouble: 8,
+  ),
+)
+```
+
+### 4. ListTile con Shimmer (README)
+
+```dart
+AppShimmerListTile(
+  padding: EdgeInsets.all(16),
+  leadingStyle: ShimmerContainerStyle(
+    width: 40,
+    height: 40,
+    boxShape: BoxShape.circle,
+  ),
+  titleStyle: ShimmerContainerStyle(width: 150, height: 16),
+  subtitleStyle: ShimmerContainerStyle(width: 100, height: 12),
+  trailingStyle: ShimmerContainerStyle(
+    width: 40,
+    height: 40,
+    boxShape: BoxShape.circle,
+  ),
+  contentSpacing: 16,
+  verticalSpacing: 4,
+  hasContainer: true,
+)
+```
+
+### 5. ListTile sin Container (example: list_tile_example_widget)
+
+```dart
+AppShimmerListTile(
+  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+  titleStyle: ShimmerContainerStyle(width: 150, height: 16),
+  subtitleStyle: ShimmerContainerStyle(
+    width: 100,
+    height: 12,
+    customColor: Color(0xff898AC4),
+  ),
+  leadingStyle: ShimmerContainerStyle(
+    width: 40,
+    height: 40,
+    boxShape: BoxShape.circle,
+    borderRadiusDouble: 10,
+  ),
+  trailingStyle: ShimmerContainerStyle(
+    width: 40,
+    height: 40,
+    boxShape: BoxShape.rectangle,
+    customColor: Color(0xff898AC4),
+  ),
+  contentSpacing: 16,
+  verticalSpacing: 4,
+  hasContainer: false,
+)
+```
+
+### 6. ListTile con Container (example: list_tile_example_widget)
+
+```dart
+AppShimmerListTile(
+  padding: EdgeInsets.zero,
+  titleStyle: ShimmerContainerStyle(width: 150, height: 16),
+  subtitleStyle: ShimmerContainerStyle(
+    width: 100,
+    height: 12,
+    customColor: Color(0xff898AC4),
+  ),
+  leadingStyle: ShimmerContainerStyle(
+    width: 40,
+    height: 40,
+    boxShape: BoxShape.circle,
+  ),
+  trailingStyle: ShimmerContainerStyle(
+    width: 40,
+    height: 40,
+    boxShape: BoxShape.circle,
+    customColor: Color(0xff898AC4),
+  ),
+  contentSpacing: 16,
+  verticalSpacing: 4,
+  hasContainer: true,
+)
+```
+
+### 7. ListView con Shimmer (README)
+
+```dart
+AppShimmerListTileListView(
+  itemCount: 5,
+  hasContainer: true,
+  titleStyle: ShimmerContainerStyle(width: 200, height: 16),
+  subtitleStyle: ShimmerContainerStyle(width: 150, height: 12),
+  leadingStyle: ShimmerContainerStyle(
+    width: 40,
+    height: 40,
+    boxShape: BoxShape.circle,
+  ),
+  dividerWidget: SizedBox(height: 8),
+)
+```
+
+### 8. ListView sin Container (example: list_view_example_widget)
+
+```dart
+AppShimmerListTileListView(
+  itemCount: 2,
+  contentSpacing: 16,
+  hasContainer: false,
+  verticalSpacing: 4,
+  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+  dividerWidget: SizedBox(height: 8),
+  titleStyle: ShimmerContainerStyle(width: 200, height: 16),
+  subtitleStyle: ShimmerContainerStyle(
+    width: 150,
+    height: 12,
+    customColor: Color(0xffC0C9EE),
+  ),
+  leadingStyle: ShimmerContainerStyle(
+    width: 40,
+    height: 40,
+    boxShape: BoxShape.circle,
+  ),
+  trailingStyle: ShimmerContainerStyle(
+    width: 40,
+    height: 40,
+    boxShape: BoxShape.circle,
+    customColor: Color(0xffC0C9EE),
+  ),
+)
+```
+
+### 9. ListView con Container (example: list_view_example_widget)
+
+```dart
+AppShimmerListTileListView(
+  itemCount: 2,
+  contentSpacing: 16,
+  hasContainer: true,
+  verticalSpacing: 4,
+  padding: EdgeInsets.zero,
+  dividerWidget: SizedBox(height: 8),
+  titleStyle: ShimmerContainerStyle(width: 200, height: 16),
+  subtitleStyle: ShimmerContainerStyle(
+    width: 150,
+    height: 12,
+    customColor: Color(0xffEBD6FB),
+  ),
+  leadingStyle: ShimmerContainerStyle(
+    width: 40,
+    height: 40,
+    boxShape: BoxShape.circle,
+  ),
+  trailingStyle: ShimmerContainerStyle(
+    width: 40,
+    height: 40,
+    boxShape: BoxShape.circle,
+    customColor: Color(0xffEBD6FB),
+  ),
+)
+```
+
+### 10. Grid con Shimmer (README)
+
+```dart
+AppShimmerGrid(
+  itemCount: 6,
+  containerStyle: ShimmerContainerStyle(
+    width: double.infinity,
+    height: 90,
+    borderRadiusDouble: 8,
+    customColor: Colors.grey.shade300,
+  ),
+  iconContainerStyle: ShimmerContainerStyle(
+    width: 35,
+    height: 35,
+    boxShape: BoxShape.circle,
+  ),
+  crossAxisCount: 3,
+  crossAxisSpacing: 8,
+  mainAxisSpacing: 8,
+)
+```
+
+### 11. Grid con icono y colores (example: grid_example_widget)
+
+```dart
+AppShimmerGrid(
+  itemCount: 6,
+  containerStyle: ShimmerContainerStyle(
+    width: double.infinity,
+    height: 90,
+    borderRadiusDouble: 3,
+    customColor: Color(0xff325288).withValues(alpha: 0.5),
+  ),
+  iconContainerStyle: ShimmerContainerStyle(
+    width: 35,
+    height: 35,
+    boxShape: BoxShape.circle,
+    customColor: Colors.white,
+  ),
+  child: Icon(
+    Icons.info_outlined,
+    size: 15,
+    color: Color(0xff325288),
+  ),
+)
+```
+
+### 12. Container List horizontal (README)
+
+```dart
+AppShimmerContainerList(
+  itemCount: 5,
+  isColumn: false,
+  skeletonContainerStyle: ShimmerContainerStyle(
+    width: 100,
+    height: 100,
+    borderRadiusDouble: 12,
+  ),
+)
+```
+
+### 13. Custom color en ShimmerContainerStyle (README)
+
+```dart
+ShimmerContainerStyle(
+  width: 200,
+  height: 100,
+  customColor: Color(0xFF898AC4),
+  borderRadiusDouble: 12,
+)
+```
+
+### 14. Ejemplo rápido: ListTile → AppShimmerListTile
+
+Usuario muestra:
+
+```dart
+ListTile(
+  leading: CircleAvatar(child: Text('A')),
+  title: Text('Título'),
+  subtitle: Text('Subtítulo'),
+  trailing: Icon(Icons.arrow_forward),
+)
+```
+
+Respuesta:
+
+```dart
+AppShimmerListTile(
+  leadingStyle: ShimmerContainerStyle(width: 40, height: 40, boxShape: BoxShape.circle),
+  titleStyle: ShimmerContainerStyle(width: 150, height: 16),
+  subtitleStyle: ShimmerContainerStyle(width: 100, height: 12),
+  trailingStyle: ShimmerContainerStyle(width: 40, height: 40),
+  contentSpacing: 16,
+  verticalSpacing: 4,
+  hasContainer: false,
+)
+```
+
+Usar estos ejemplos como referencia para generar código fiel a la API de app_shimmer y a los patrones del ejemplo del proyecto.

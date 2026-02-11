@@ -1,23 +1,23 @@
 {
     "dart.flutterSdkPath": "/Users/felipev9/Documents/Samay/apps/brisa_app/.fvm/versions/3.29.3",
     "workbench.colorCustomizations": {
-        "activityBar.activeBackground": "#bf2bf3",
-        "activityBar.background": "#bf2bf3",
-        "activityBar.foreground": "#e7e7e7",
-        "activityBar.inactiveForeground": "#e7e7e799",
-        "activityBarBadge.background": "#5a4405",
+        "activityBar.activeBackground": "#edb8c1",
+        "activityBar.background": "#edb8c1",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#3a9927",
         "activityBarBadge.foreground": "#e7e7e7",
-        "commandCenter.border": "#e7e7e799",
-        "sash.hoverBorder": "#bf2bf3",
-        "titleBar.activeBackground": "#a80dde",
-        "titleBar.activeForeground": "#e7e7e7",
-        "titleBar.inactiveBackground": "#a80dde99",
-        "titleBar.inactiveForeground": "#e7e7e799",
-        "editorGroup.border": "#bf2bf3",
-        "panel.border": "#bf2bf3",
-        "sideBar.border": "#bf2bf3",
-        "tab.activeBorder": "#bf2bf3",
-        "titleBar.border": "#a80dde"
+        "commandCenter.border": "#15202b99",
+        "sash.hoverBorder": "#edb8c1",
+        "titleBar.activeBackground": "#e2909e",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveBackground": "#e2909e99",
+        "titleBar.inactiveForeground": "#15202b99",
+        "editorGroup.border": "#edb8c1",
+        "panel.border": "#edb8c1",
+        "sideBar.border": "#edb8c1",
+        "tab.activeBorder": "#edb8c1",
+        "titleBar.border": "#e2909e"
     },
-    "peacock.color": "#a80dde"
+    "peacock.color": "#e2909e"
 }

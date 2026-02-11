@@ -1,3 +1,8 @@
+## 1.0.5
+
+- **Added**: Cursor rule and `docs/SHIMMER_GENERATION.md` for generating shimmer from widgets (any editor / AI).
+- **Added**: `tool/suggest_shimmer.dart` script to suggest app_shimmer snippets from Dart files.
+
 ## 1.0.4
 
 - **Added**: `customGradient` parameter to all shimmer animation widgets for full control of shimmer direction, colors, and intensity.
