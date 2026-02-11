@@ -12,8 +12,8 @@ Esta guía sirve para **cualquier editor** (VS Code, Antigravity, etc.) y para *
    Obtienes snippets sugeridos según lo que detecte en el archivo.
 
 2. **Con IA en VS Code / Antigravity / otro**  
-   Abre este archivo (`docs/SHIMMER_GENERATION.md`) o cópialo en el contexto del chat y pide algo como:
-   - *"Siguiendo las instrucciones de docs/SHIMMER_GENERATION.md, genera el código app_shimmer para este widget"*
+   Abre este archivo (`doc/SHIMMER_GENERATION.md`) o cópialo en el contexto del chat y pide algo como:
+   - *"Siguiendo las instrucciones de doc/SHIMMER_GENERATION.md, genera el código app_shimmer para este widget"*
    - *"Usa la guía SHIMMER_GENERATION.md y convierte este ListView en shimmer"*
 
 ---

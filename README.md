@@ -220,7 +220,7 @@ Puedes obtener código app_shimmer a partir de tus pantallas o widgets de varias
    Regla en `.cursor/rules/app-shimmer-from-widgets.mdc`. Abre el archivo de tu widget y pide: *"Genera el shimmer para este widget"* o *"Haz el skeleton de esta pantalla"*.
 
 2. **Con IA en VS Code, Antigravity u otro editor**  
-   Usa la guía **`docs/SHIMMER_GENERATION.md`**: ábrela o referénciala en el chat de tu asistente y pide algo como: *"Siguiendo docs/SHIMMER_GENERATION.md, genera el shimmer para este widget"*. Sirve con Copilot, Continue, Claude, etc.
+   Usa la guía **`doc/SHIMMER_GENERATION.md`**: ábrela o referénciala en el chat de tu asistente y pide algo como: *"Siguiendo doc/SHIMMER_GENERATION.md, genera el shimmer para este widget"*. Sirve con Copilot, Continue, Claude, etc.
 
 3. **Script (sin IA, cualquier editor)**  
    En la terminal, desde la raíz del proyecto:
